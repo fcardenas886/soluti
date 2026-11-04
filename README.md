@@ -29,10 +29,17 @@ En la etiqueta `<body>` de `index.html`:
 
 El mensaje de cada botón está en su atributo `data-msg`.
 
+### Formulario "Te llamamos"
+
+Está en la sección de contacto. El cliente deja su nombre, teléfono, tipo de negocio y horario.
+
+- Con la clave de [Web3Forms](https://web3forms.com) en `data-web3forms` (en `<body>`), los datos llegan como correo a la cuenta con que se creó la clave.
+- Sin clave, o si el envío falla, el formulario abre WhatsApp con los datos ya escritos.
+
 ### Ilustraciones de los productos
 
 Las pantallas de MarketSTI, del taller y de SimpleStock están dibujadas con HTML y CSS (bloques `prod-visual`). Se pueden reemplazar por capturas reales con una etiqueta `<img>`.
 
-Si cambias `style.css` o `app.js`, sube el número `?v=6` en `index.html` (a `?v=7`, etc.) para que los navegadores carguen la versión nueva.
+Si cambias `style.css` o `app.js`, sube el número `?v=8` en `index.html` (a `?v=9`, etc.) para que los navegadores carguen la versión nueva.
 
 Las palabras que se van escribiendo en el titular están en el atributo `data-palabras` del elemento `<span class="rota">` en `index.html`.

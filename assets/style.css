@@ -239,6 +239,31 @@ h3 { font-weight: 600; }
 .cta .sub { max-width: 520px; margin-inline: auto; }
 #contacto { padding-top: 0; }
 
+/* Formulario "Te llamamos" */
+.llamada-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; color: var(--muted); font-weight: 500; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 4px; }
+.llamada-link:hover { color: var(--text); text-decoration-color: var(--accent2); }
+.llamada-link .i { color: var(--accent2); }
+.llamada { max-width: 640px; margin: 40px auto 0; padding-top: 32px; border-top: 1px solid var(--line); text-align: left; }
+.llamada-titulo { display: flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--head); font-size: 1.15rem; font-weight: 700; }
+.llamada-titulo .i { color: var(--accent2); }
+.llamada-sub { text-align: center; color: var(--muted); margin: 4px 0 22px; }
+.campos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.campos label { display: flex; flex-direction: column; gap: 6px; font-size: .9rem; font-weight: 500; color: var(--muted); }
+.campos input, .campos select { font: inherit; font-size: 1rem; color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 11px 12px; width: 100%; }
+.campos select { appearance: none; -webkit-appearance: none; padding-right: 36px; cursor: pointer;
+    background: var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A3ADCC' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 12px center / 16px no-repeat; }
+.campos input::placeholder { color: #5D6890; }
+.campos input:focus, .campos select:focus { outline: none; border-color: var(--accent2); box-shadow: 0 0 0 3px rgba(34,211,238,.18); }
+.campos input[aria-invalid="true"] { border-color: var(--copihue); }
+.llamada .btn { width: 100%; justify-content: center; margin-top: 18px; border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+.llamada .btn:disabled { opacity: .6; cursor: wait; transform: none; }
+.llamada-estado { min-height: 1.6em; margin-top: 12px; text-align: center; font-weight: 500; }
+.llamada-estado.ok { color: var(--ok); }
+.llamada-estado.error { color: #FF8FA3; }
+.trampa { position: absolute; left: -9999px; }
+.llamada-nota { margin-top: 4px; text-align: center; font-size: .8rem; color: var(--muted); opacity: .85; }
+.llamada-nota a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+
 /* Pie */
 .foot { border-top: 1px solid var(--line); padding: 56px 0 28px; color: var(--muted); font-size: .92rem; }
 .foot-in { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 36px; }
@@ -302,8 +327,11 @@ h3 { font-weight: 600; }
     .servicios, .steps, .foot-in { grid-template-columns: 1fr; }
     .serv { padding: 24px; }
     .trust-in div { padding: 20px 14px; }
+    .trust strong { font-size: 1.15rem; }
     .cta { padding: 48px 20px; border-radius: 22px; }
     .faq details p { padding-right: 0; }
+    .campos { grid-template-columns: 1fr; }
+    .llamada-link { font-size: .95rem; }
 }
 
 /* Respeta a quienes desactivan las animaciones en su sistema */

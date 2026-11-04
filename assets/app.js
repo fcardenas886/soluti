@@ -1,7 +1,7 @@
-// Comportamiento de la página: contacto (WhatsApp o correo), titular animado, menú móvil y aparición al hacer scroll.
+// Comportamiento de la página: contacto (WhatsApp o correo), formulario "Te llamamos", titular animado, menú móvil y aparición al hacer scroll.
 (function () {
     const quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const { email, whatsapp } = document.body.dataset;
+    const { email, whatsapp, web3forms } = document.body.dataset;
 
     // Contacto: con número de WhatsApp los botones abren el chat; sin él, abren el correo con el asunto ya escrito
     if (whatsapp) document.documentElement.classList.add('wa');
@@ -19,6 +19,68 @@
     document.querySelectorAll('[data-mail]').forEach(a => {
         a.href = `mailto:${email}?subject=${encodeURIComponent(a.dataset.mail)}`;
     });
+
+    // Formulario "Te llamamos": con clave de Web3Forms los datos llegan al correo; sin ella, o si el envío falla, se usa WhatsApp
+    const form = document.querySelector('#llamada');
+    if (form) {
+        const estado = form.querySelector('.llamada-estado');
+        const enviar = form.querySelector('button');
+        const avisar = (texto, tipo) => { estado.textContent = texto; estado.className = 'llamada-estado ' + tipo; };
+        const respaldo = d => {
+            const texto = `Hola, quiero que me llamen.\nNombre: ${d.nombre}\nTeléfono: ${d.telefono}\nNegocio: ${d.negocio}\nHorario: ${d.horario}`;
+            return whatsapp ? `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`
+                : `mailto:${email}?subject=${encodeURIComponent('Solicitud de llamada')}&body=${encodeURIComponent(texto)}`;
+        };
+
+        form.addEventListener('submit', async ev => {
+            ev.preventDefault();
+            const d = Object.fromEntries(new FormData(form));
+            if (d.botcheck) return;
+
+            const nombre = form.elements.nombre, telefono = form.elements.telefono;
+            const nombreOk = d.nombre.trim().length > 1;
+            const telefonoOk = d.telefono.replace(/\D/g, '').length >= 8;
+            nombre.setAttribute('aria-invalid', !nombreOk);
+            telefono.setAttribute('aria-invalid', !telefonoOk);
+            if (!nombreOk || !telefonoOk) {
+                avisar(!nombreOk ? 'Escribe tu nombre.' : 'Revisa tu número de teléfono.', 'error');
+                (!nombreOk ? nombre : telefono).focus();
+                return;
+            }
+            avisar('', '');
+
+            if (!web3forms) { window.open(respaldo(d), '_blank', 'noopener'); return; }
+
+            enviar.disabled = true;
+            avisar('Enviando…', '');
+            try {
+                const r = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                    body: JSON.stringify({
+                        access_key: web3forms,
+                        subject: `Llamar a ${d.nombre} (${d.telefono})`,
+                        from_name: 'Página web SoluTI',
+                        Nombre: d.nombre, 'Teléfono': d.telefono, Negocio: d.negocio, Horario: d.horario
+                    })
+                });
+                const res = await r.json();
+                if (!res.success) throw new Error(res.message);
+                form.reset();
+                avisar('¡Listo! Te llamaremos pronto.', 'ok');
+            } catch (e) {
+                estado.className = 'llamada-estado error';
+                estado.innerHTML = 'No pudimos enviar tu solicitud. ';
+                const a = document.createElement('a');
+                a.href = respaldo(d); a.target = '_blank'; a.rel = 'noopener';
+                a.textContent = whatsapp ? 'Envíanos tus datos por WhatsApp' : 'Envíanos tus datos por correo';
+                a.style.textDecoration = 'underline';
+                estado.append(a);
+            } finally {
+                enviar.disabled = false;
+            }
+        });
+    }
 
     // Titular: la última palabra se escribe, se borra y cambia por la siguiente.
     // Su caja toma el ancho de la palabra más larga, para que el texto no salte al cambiar.
