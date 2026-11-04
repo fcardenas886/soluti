@@ -15,11 +15,24 @@ Todos los textos están en `index.html`.
 
 | Archivo | Contenido |
 | --- | --- |
-| `index.html` | Textos y estructura de la página |
-| `assets/style.css` | Diseño y animaciones |
-| `assets/app.js` | Efectos (titular que se escribe, aparición al hacer scroll, contadores) |
+| `index.html` | Textos, estructura, íconos e ilustraciones de los productos |
+| `assets/style.css` | Diseño |
+| `assets/app.js` | Botones de contacto, menú en celular y aparición al hacer scroll |
 | `assets/copihue.svg` | Ícono del copihue |
 
-Las palabras que se van escribiendo en el titular están en el atributo `data-palabras` del elemento `<span class="rota">` en `index.html`.
+### Contacto y WhatsApp
 
-Si cambias `style.css` o `app.js`, sube el número `?v=1` en `index.html` (a `?v=2`, etc.) para que los navegadores carguen la versión nueva.
+En la etiqueta `<body>` de `index.html`:
+
+- `data-email`: el correo al que llegan las consultas.
+- `data-whatsapp`: el número con código de país, sin `+` ni espacios (ej. `56912345678`). Si se completa, los botones abren WhatsApp con el mensaje ya escrito y aparece el botón flotante. Si se deja vacío, los botones abren el correo.
+
+El mensaje de cada botón está en su atributo `data-msg`.
+
+### Ilustraciones de los productos
+
+Las pantallas de MarketSTI, del taller y de SimpleStock están dibujadas con HTML y CSS (bloques `prod-visual`). Se pueden reemplazar por capturas reales con una etiqueta `<img>`.
+
+Si cambias `style.css` o `app.js`, sube el número `?v=6` en `index.html` (a `?v=7`, etc.) para que los navegadores carguen la versión nueva.
+
+Las palabras que se van escribiendo en el titular están en el atributo `data-palabras` del elemento `<span class="rota">` en `index.html`.

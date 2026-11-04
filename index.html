@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SoluTI · Soluciones Tecnológicas Integrales · Loncoche</title>
+    <title>SoluTI · Sistemas de venta e inventario para pymes · Loncoche</title>
+    <meta name="description" content="Punto de venta, control de stock y boleta electrónica SII para minimarkets, botillerías, talleres y comercios. Atención presencial en Loncoche, Lanco, Villarrica, Pucón y Temuco.">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
@@ -14,41 +15,95 @@
     <meta property="og:description" content="Sistemas de ventas e inventario para pymes, desde Loncoche, Región de La Araucanía.">
     <meta property="og:image" content="https://fcardenas886.github.io/soluti/assets/marca/soluti-foto-perfil.png">
     <meta property="og:url" content="https://fcardenas886.github.io/soluti/">
-    <meta name="description" content="Desarrollamos sistemas de ventas e inventario para pymes. ¿Necesitas algo más? Lo conversamos y te entregamos una propuesta integral.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/style.css?v=2">
+    <link rel="stylesheet" href="assets/style.css?v=6">
     <script>document.documentElement.classList.add('js');</script>
-    <script src="assets/app.js?v=2" defer></script>
+    <script src="assets/app.js?v=6" defer></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "SoluTI · Soluciones Tecnológicas Integrales",
+        "description": "Sistemas de punto de venta, inventario y boleta electrónica SII para pymes.",
+        "url": "https://fcardenas886.github.io/soluti/",
+        "image": "https://fcardenas886.github.io/soluti/assets/marca/soluti-foto-perfil.png",
+        "email": "alek886.inf@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Loncoche", "addressRegion": "La Araucanía", "addressCountry": "CL" },
+        "areaServed": ["Loncoche", "Lanco", "Villarrica", "Pucón", "Temuco", "Chile"]
+    }
+    </script>
 </head>
-<body>
+<!--
+    Contacto: data-email es el correo. En data-whatsapp va el número con código de país y sin "+" ni espacios
+    (ej. 56912345678). Si se deja vacío, todos los botones abren el correo y el botón flotante no aparece.
+-->
+<body data-email="alek886.inf@gmail.com" data-whatsapp="">
+
+<!-- Íconos (se usan con <svg class="i"><use href="#i-nombre"/></svg>) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+        <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.4 11.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21 7H6"/></symbol>
+        <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+        <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 8v8M10 8v8M14 8v8M17 8v8"/></symbol>
+        <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></symbol>
+        <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M5 2h14v20l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></symbol>
+        <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0zM12 18v4"/></symbol>
+        <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+        <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></symbol>
+        <symbol id="i-wifi-off" viewBox="0 0 24 24"><path d="m2 2 20 20M8.5 16.4a5 5 0 0 1 7 0M5 12.9a10 10 0 0 1 5.2-2.8M19 12.9a10 10 0 0 0-2.3-1.6M2 8.8a15 15 0 0 1 4.2-2.6M22 8.8A15 15 0 0 0 10.7 5M12 20h.01"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+        <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.5-5.3A8.5 8.5 0 1 1 21 12z"/><path d="M9 9c0 3.3 2.7 6 6 6l1-1.5-2-1-1 .7a4 4 0 0 1-2.2-2.2l.7-1-1-2z"/></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+        <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+        <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol>
+        <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4M8.5 10.5l2.5 2.5 4.5-4.5"/></symbol>
+        <symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2" y="14" width="5" height="6" rx="2"/><rect x="17" y="14" width="5" height="6" rx="2"/></symbol>
+        <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    </defs>
+</svg>
+
+<a href="#contenido" class="skip">Saltar al contenido</a>
 
 <header class="nav">
     <div class="wrap nav-in">
         <a href="#inicio" class="logo">
-            <img src="assets/marca/soluti-logo-sin-bajada-para-fondo-oscuro.svg" alt="SoluTI" class="logo-img" width="122" height="40">
-            <small>Soluciones Tecnológicas Integrales</small>
+            <img src="assets/marca/soluti-logo-sin-bajada-para-fondo-oscuro.svg" alt="SoluTI, inicio" class="logo-img" width="122" height="40">
         </a>
-        <nav>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+            <svg class="i i-abrir"><use href="#i-menu"/></svg><svg class="i i-cerrar"><use href="#i-x"/></svg>
+        </button>
+        <nav id="menu" aria-label="Principal">
             <a href="#servicios">Servicios</a>
-            <a href="#soluciones">Soluciones</a>
-            <a href="#sobre-mi">Nosotros</a>
+            <a href="#productos">Productos</a>
+            <a href="#proceso">Cómo trabajamos</a>
+            <a href="#preguntas">Preguntas</a>
+            <a href="#nosotros">Nosotros</a>
             <a href="#contacto" class="btn btn-sm">Contáctanos</a>
         </nav>
     </div>
 </header>
 
+<main id="contenido">
+
 <section id="inicio" class="hero">
     <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="wrap hero-in">
         <div class="hero-text">
-            <p class="kicker">Desarrollo de Software a Medida</p>
-            <p class="place">Loncoche <img src="assets/copihue.svg" alt="Copihue" class="copihue"> <span class="reg">Región de La Araucanía</span></p>
-            <h1>Solu<span class="ti">TI</span><span class="acro">Soluciones Tecnológicas Integrales</span><br><span class="grad">Tecnología a la medida de tu                <span class="rota" data-palabras="[&quot;negocio&quot;,&quot;minimarket&quot;,&quot;taller&quot;,&quot;almacén&quot;,&quot;botillería&quot;,&quot;pyme&quot;]">negocio</span></span></h1>
+            <p class="kicker">Desarrollo de software a medida</p>
+            <p class="place">Loncoche <img src="assets/copihue.svg" alt="" class="copihue"> <span class="reg">Región de La Araucanía</span></p>
+            <h1>Solu<span class="ti">TI</span><span class="acro">Soluciones Tecnológicas Integrales</span>
+                <span class="grad">Tecnología a la medida de tu <span class="rota-box" aria-hidden="true"><span class="rota" data-palabras='["negocio","minimarket","taller","almacén","botillería","pyme"]'>negocio</span></span><span class="sr-only">negocio</span></span></h1>
             <p class="lead">Desarrollamos sistemas de ventas e inventario para pymes. ¿Necesitas algo más? Lo conversamos y te entregamos una propuesta integral.</p>
             <div class="actions">
-                <a href="mailto:alek886.inf@gmail.com" class="btn" target="_blank" rel="noopener">Cotiza tu proyecto</a>
-                <a href="#soluciones" class="btn btn-ghost">Ver soluciones</a>
+                <a href="mailto:alek886.inf@gmail.com" class="btn" data-msg="Hola, vi su página y quiero cotizar un proyecto.">
+                    <svg class="i i-wa"><use href="#i-chat"/></svg><svg class="i i-mail"><use href="#i-mail"/></svg>
+                    Cotiza tu proyecto
+                </a>
+                <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
             </div>
         </div>
         <div class="avatar">
@@ -61,165 +116,331 @@
                         <path d="M38.7 45.95L41.4 32.75L50.36 42.83Z" fill="#3B6CFF" stroke="#3B6CFF" stroke-width="1.2" stroke-linejoin="round"/>
                     </g>
                     <g transform="translate(24.4 22.6267) scale(.50667)"><path d="M15 3.4C15 1 15.8 -1.4 17.2 -3.4" stroke="#24A148" stroke-width="1.4" stroke-linecap="round" fill="none"/><path d="M16.4 -1.6C18.4 -3.8 22.2 -4 25.4 -3C23.2 -0.6 19.4 0.4 16.4 -1.6Z" fill="#12923F"/><path d="M17.2 -1.9Q21 -2.4 24.6 -2.9" stroke="#3CB868" stroke-width=".45" fill="none" stroke-linecap="round"/><path d="M10.6 19C10 28.6 12.2 33.8 15 36C17.8 33.8 20 28.6 19.4 19Z" fill="#B80A28"/><path d="M12.6 5L17.4 5C20.6 5 22.4 8.6 22.6 13C22.8 16.5 22.6 19 22.8 21.4C23.2 25 24.6 28.4 26.6 31C27.3 32.2 28 33.3 28.8 34.4C24.6 34.2 20.6 32 18.4 28.4C16.8 25.6 15.8 21.5 15 17.4C14.2 21.5 13.2 25.6 11.6 28.4C9.4 32 5.4 34.2 1.2 34.4C2 33.3 2.7 32.2 3.4 31C5.4 28.4 6.8 25 7.2 21.4C7.4 19 7.2 16.5 7.4 13C7.6 8.6 9.4 5 12.6 5Z" fill="#E10A3B"/><path d="M12.2 6.4C12 2.6 18 2.6 17.8 6.4C16.1 7.3 13.9 7.3 12.2 6.4Z" fill="#12923F"/></g>
-                </svg>
+                    </svg>
             </span>
-                    </div>
+        </div>
     </div>
-    <div class="wrap stats">
-                    <div><strong data-contar="15+">15+</strong><span>Sistemas desarrollados</span></div>
-                    <div><strong data-contar="100%">100%</strong><span>A medida de cada cliente</span></div>
-                    <div><strong data-contar="24/7">24/7</strong><span>Sistemas en la nube o local</span></div>
-            </div>
+</section>
+
+<section class="trust" aria-label="Datos de SoluTI">
+    <div class="wrap trust-in">
+        <div><strong>100% local</strong><span>desarrollo y soporte desde Loncoche</span></div>
+        <div><strong>En la nube</strong><span>accede a tu sistema desde donde estés</span></div>
+        <div><strong>Offline</strong><span>tu caja vende aunque se caiga internet</span></div>
+        <div><strong>SII</strong><span>boleta electrónica integrada</span></div>
+    </div>
 </section>
 
 <section id="servicios" class="sec">
     <div class="wrap">
-        <h2>¿En qué te puedo ayudar?</h2>
-        <p class="sub">Soluciones listas para usar o construidas desde cero según tu necesidad.</p>
-        <div class="grid">
-                            <article class="card">
-                    <div class="ico">🛒</div>
-                    <h3>Punto de venta (POS)</h3>
-                    <p>Cajas rápidas para minimarkets, botillerías y comercios: lector de código de barras, turnos, cierre de caja y venta incluso sin internet.</p>
-                </article>
-                            <article class="card">
-                    <div class="ico">📦</div>
-                    <h3>Control de inventario</h3>
-                    <p>Stock en tiempo real, kardex, alertas de quiebre, compras a proveedores y reportes para decidir mejor.</p>
-                </article>
-                            <article class="card">
-                    <div class="ico">📲</div>
-                    <h3>SimpleStock: toma de inventario</h3>
-                    <p>App para Android que convierte tu celular en escáner: cuenta tu stock en bodega o sala y exporta en CSV para cargarlo en otros sistemas del mercado.</p>
-                </article>
-                            <article class="card">
-                    <div class="ico">🔧</div>
-                    <h3>POS para taller mecánico</h3>
-                    <p>Órdenes de trabajo de principio a fin: recepción, diagnóstico, presupuesto, reparación y entrega. Ficha del vehículo, venta de repuestos y avisos por WhatsApp.</p>
-                </article>
-                            <article class="card">
-                    <div class="ico">🧾</div>
-                    <h3>Boleta electrónica SII integrada</h3>
-                    <p>Emite boletas electrónicas directo al SII desde tu propio sistema, sin plataformas de terceros. Timbre electrónico, PDF y consulta para tus clientes.</p>
-                </article>
-                            <article class="card">
-                    <div class="ico">⚙️</div>
-                    <h3>Sistemas de gestión a tu medida</h3>
-                    <p>Gimnasios, condominios, repartos y más: software hecho para tu forma de trabajar, no al revés.</p>
-                </article>
-                            <article class="card">
-                    <div class="ico">🔌</div>
-                    <h3>API e integraciones SII</h3>
-                    <p>Conectamos tu sistema por API con proveedores de facturación electrónica autorizados, para que emitas facturas cumpliendo la normativa del SII.</p>
-                </article>
-                            <article class="card destacado">
-                    <div class="ico">🤝</div>
-                    <h3>Asesoría y gestión de proyectos</h3>
-                    <p>¿Necesitas algo fuera de lo común? Te ayudamos a definirlo, buscamos al especialista adecuado y supervisamos el proyecto por ti.</p>
-                </article>
-                    </div>
+        <header class="sec-head">
+            <p class="eyebrow">Servicios</p>
+            <h2>¿En qué te podemos ayudar?</h2>
+            <p class="sub">Soluciones listas para usar o construidas desde cero según tu necesidad.</p>
+        </header>
+        <div class="servicios">
+            <article class="serv">
+                <span class="emoji" aria-hidden="true">🛒</span>
+                <h3>Punto de venta (POS)</h3>
+                <p>Cajas rápidas para minimarkets, botillerías y comercios: lector de código de barras, turnos, cierre de caja y venta incluso sin internet.</p>
+                <a href="#prod-pos" class="more">Ver MarketSTI <svg class="i"><use href="#i-arrow"/></svg></a>
+            </article>
+            <article class="serv">
+                <span class="emoji" aria-hidden="true">📦</span>
+                <h3>Control de inventario</h3>
+                <p>Stock en tiempo real, kardex, alertas de quiebre, compras a proveedores y reportes para decidir mejor.</p>
+                <a href="#prod-pos" class="more">Ver MarketSTI <svg class="i"><use href="#i-arrow"/></svg></a>
+            </article>
+            <article class="serv">
+                <span class="emoji" aria-hidden="true">📲</span>
+                <h3>SimpleStock: toma de inventario</h3>
+                <p>App para Android que convierte tu celular en escáner: cuenta tu stock en bodega o sala y exporta en CSV para cargarlo en otros sistemas del mercado.</p>
+                <a href="#prod-simplestock" class="more">Ver SimpleStock <svg class="i"><use href="#i-arrow"/></svg></a>
+            </article>
+            <article class="serv">
+                <span class="emoji" aria-hidden="true">🔧</span>
+                <h3>POS para taller mecánico</h3>
+                <p>Órdenes de trabajo de principio a fin: recepción, diagnóstico, presupuesto, reparación y entrega. Ficha del vehículo, venta de repuestos y avisos por WhatsApp.</p>
+                <a href="#prod-taller" class="more">Ver sistema para taller <svg class="i"><use href="#i-arrow"/></svg></a>
+            </article>
+            <article class="serv">
+                <span class="emoji" aria-hidden="true">🧾</span>
+                <h3>Boleta electrónica SII integrada</h3>
+                <p>Emite boletas electrónicas directo al SII desde tu propio sistema, sin plataformas de terceros. Timbre electrónico, PDF y consulta para tus clientes.</p>
+            </article>
+            <article class="serv">
+                <span class="emoji" aria-hidden="true">⚙️</span>
+                <h3>Sistemas de gestión a tu medida</h3>
+                <p>Gimnasios, condominios, repartos y más: software hecho para tu forma de trabajar, no al revés.</p>
+            </article>
+            <article class="serv">
+                <span class="emoji" aria-hidden="true">🔌</span>
+                <h3>API e integraciones SII</h3>
+                <p>Conectamos tu sistema por API con proveedores de facturación electrónica autorizados, para que emitas facturas cumpliendo la normativa del SII.</p>
+            </article>
+            <article class="serv destacado">
+                <span class="emoji" aria-hidden="true">🤝</span>
+                <h3>Asesoría y gestión de proyectos</h3>
+                <p>¿Necesitas algo fuera de lo común? Te ayudamos a definirlo, buscamos al especialista adecuado y supervisamos el proyecto por ti.</p>
+                <a href="mailto:alek886.inf@gmail.com" class="more" data-msg="Hola, vi su página y necesito asesoría para un proyecto.">Conversemos <svg class="i"><use href="#i-arrow"/></svg></a>
+            </article>
+        </div>
     </div>
 </section>
 
-<section id="soluciones" class="sec alt">
+<section id="productos" class="sec alt">
     <div class="wrap">
-        <h2>¿Te suena familiar?</h2>
-        <p class="sub">Problemas reales de negocios reales, y cómo los resolvemos.</p>
-        <div class="grid">
-                            <article class="card sol">
-                    <div class="ico">🛒</div>
-                    <p class="problema">¿Vendes con cuaderno y calculadora? ¿No sabes cuánto vendiste hoy, tu margen, tu stock ni con qué medio de pago te pagaron?</p>
-                    <h3>MarketSTI POS es tu solución</h3>
-                    <p>Tu punto de venta completo: ventas, stock, márgenes y medios de pago al día, en el computador o la tablet.</p>
-                    <ul class="puntos">
-                        <li>Venta diaria y margen</li><li>Control de stock</li><li>Ventas por medio de pago</li><li>Boleta o factura electrónica opcional</li>                    </ul>
-                    <a href="mailto:alek886.inf@gmail.com?subject=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20me%20interesa%3A%20MarketSTI%20POS%20es%20tu%20soluci%C3%B3n" target="_blank" rel="noopener" class="more">Conversemos →</a>
-                </article>
-                            <article class="card sol">
-                    <div class="ico">🧾</div>
-                    <p class="problema">¿Te preocupa cambiar tu forma de trabajar y de emitir boletas?</p>
-                    <h3>Sigue con tu boleta como siempre</h3>
-                    <p>Lo entendemos. Sigue emitiendo tu boleta con tu app E-Boleta o tu POS móvil de pago electrónico, y nosotros manejamos tu stock y tus ventas.</p>
-                    <ul class="puntos">
-                        <li>Sin cambiar tu forma de cobrar</li><li>Boleta electrónica integrada: opcional</li><li>Factura electrónica integrada: opcional</li>                    </ul>
-                    <a href="mailto:alek886.inf@gmail.com?subject=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20me%20interesa%3A%20Sigue%20con%20tu%20boleta%20como%20siempre" target="_blank" rel="noopener" class="more">Conversemos →</a>
-                </article>
-                            <article class="card sol">
-                    <div class="ico">🔧</div>
-                    <p class="problema">¿Tienes un taller mecánico y vendes repuestos, pero no tienes control de los vehículos en taller ni el historial de tus clientes?</p>
-                    <h3>Tenemos la solución para tu taller</h3>
-                    <p>Órdenes de trabajo de principio a fin, ficha de cada vehículo con su historial y venta de repuestos en un solo sistema.</p>
-                    <ul class="puntos">
-                        <li>Vehículos en taller en tiempo real</li><li>Historial por cliente y vehículo</li><li>Venta de repuestos y caja</li><li>Avisos por WhatsApp</li>                    </ul>
-                    <a href="mailto:alek886.inf@gmail.com?subject=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20me%20interesa%3A%20Tenemos%20la%20soluci%C3%B3n%20para%20tu%20taller" target="_blank" rel="noopener" class="more">Conversemos →</a>
-                </article>
-                            <article class="card sol">
-                    <div class="ico">📲</div>
-                    <p class="problema">¿Tomar inventario es un problema? ¿Anotas códigos y cantidades en planillas para después digitarlos en tu sistema?</p>
-                    <h3>SimpleStock es tu solución</h3>
-                    <p>Convierte tu smartphone Android en un capturador de inventario y exporta el conteo en el formato que tu sistema requiera.</p>
-                    <ul class="puntos">
-                        <li>Usa tu propio celular Android</li><li>Sin planillas ni doble digitación</li><li>Exporta en CSV u otro formato</li>                    </ul>
-                    <a href="mailto:alek886.inf@gmail.com?subject=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20me%20interesa%3A%20SimpleStock%20es%20tu%20soluci%C3%B3n" target="_blank" rel="noopener" class="more">Conversemos →</a>
-                </article>
-                            <article class="card sol">
-                    <div class="ico">🧩</div>
-                    <p class="problema">¿Nuestras soluciones no se adaptan del todo a tu negocio?</p>
-                    <h3>Lo adaptamos a ti</h3>
-                    <p>Coméntanos. Sabemos que cada negocio es diferente: nuestros sistemas son altamente personalizables.</p>
-                    <ul class="puntos">
-                        <li>Pantallas y reportes a tu medida</li><li>Funciones nuevas según tu necesidad</li>                    </ul>
-                    <a href="mailto:alek886.inf@gmail.com?subject=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20me%20interesa%3A%20Lo%20adaptamos%20a%20ti" target="_blank" rel="noopener" class="more">Conversemos →</a>
-                </article>
-                            <article class="card sol">
-                    <div class="ico">💡</div>
-                    <p class="problema">¿Tu solución no está aquí?</p>
-                    <h3>Cuéntanos tu idea</h3>
-                    <p>Coméntanos qué necesitas y te asesoramos: lo desarrollamos nosotros o te conseguimos al especialista indicado.</p>
-                    <ul class="puntos">
-                        <li>Asesoría sin compromiso</li><li>Propuesta integral</li>                    </ul>
-                    <a href="mailto:alek886.inf@gmail.com?subject=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20me%20interesa%3A%20Cu%C3%A9ntanos%20tu%20idea" target="_blank" rel="noopener" class="more">Conversemos →</a>
-                </article>
+        <header class="sec-head">
+            <p class="eyebrow">Productos</p>
+            <h2>¿Te suena familiar?</h2>
+            <p class="sub">Problemas reales de negocios reales, y el sistema que los resuelve.</p>
+        </header>
+
+        <article class="prod" id="prod-pos">
+            <div class="prod-text">
+                <p class="prod-tag"><svg class="i"><use href="#i-cart"/></svg> MarketSTI POS</p>
+                <p class="problema">¿Vendes con cuaderno y calculadora? ¿No sabes cuánto vendiste hoy, tu margen, tu stock ni con qué medio de pago te pagaron?</p>
+                <h3>Tu punto de venta completo, en el computador o la tablet</h3>
+                <ul class="puntos">
+                    <li>Lector de código de barras, turnos y cierre de caja</li>
+                    <li>Venta diaria, margen y ventas por medio de pago</li>
+                    <li>Stock en tiempo real, kardex y alertas de quiebre</li>
+                    <li>Vende incluso sin internet</li>
+                    <li>Boleta o factura electrónica: opcional</li>
+                </ul>
+                <p class="nota">¿Ya emites boletas con E-Boleta o con tu POS móvil de pago? Sigue igual: nosotros manejamos tu stock y tus ventas.</p>
+                <a href="mailto:alek886.inf@gmail.com" class="more" data-msg="Hola, vi su página y me interesa MarketSTI POS.">Quiero MarketSTI <svg class="i"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="prod-visual" aria-hidden="true">
+                <div class="win">
+                    <div class="win-bar"><i></i><i></i><i></i><span>MarketSTI · Resumen del día</span></div>
+                    <div class="rep">
+                        <div class="rep-kpis">
+                            <div><small>Ventas</small><strong>$412.380</strong></div>
+                            <div><small>Margen</small><strong>28%</strong></div>
+                            <div><small>Boletas</small><strong>64</strong></div>
+                        </div>
+                        <p class="rep-title">Por medio de pago</p>
+                        <ul class="rep-medios">
+                            <li><span>Débito</span><i style="--p:52%"></i><b>52%</b></li>
+                            <li><span>Efectivo</span><i style="--p:31%"></i><b>31%</b></li>
+                            <li><span>Crédito</span><i style="--p:12%"></i><b>12%</b></li>
+                            <li><span>Transferencia</span><i style="--p:5%"></i><b>5%</b></li>
+                        </ul>
+                        <div class="rep-alerta"><svg class="i"><use href="#i-box"/></svg> Quiebre de stock: Aceite 1 L (2 u.) · Azúcar 1 kg (3 u.)</div>
                     </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="prod rev" id="prod-taller">
+            <div class="prod-text">
+                <p class="prod-tag"><svg class="i"><use href="#i-wrench"/></svg> POS para taller mecánico</p>
+                <p class="problema">¿Tienes un taller y vendes repuestos, pero no sabes qué vehículos están en taller ni tienes el historial de tus clientes?</p>
+                <h3>Órdenes de trabajo de principio a fin</h3>
+                <ul class="puntos">
+                    <li>Recepción, diagnóstico, presupuesto, reparación y entrega</li>
+                    <li>Vehículos en taller en tiempo real</li>
+                    <li>Ficha e historial por cliente y vehículo</li>
+                    <li>Venta de repuestos y caja en el mismo sistema</li>
+                    <li>Avisos al cliente por WhatsApp</li>
+                </ul>
+                <a href="mailto:alek886.inf@gmail.com" class="more" data-msg="Hola, vi su página y me interesa el sistema para taller mecánico.">Quiero el sistema para mi taller <svg class="i"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="prod-visual" aria-hidden="true">
+                <div class="win">
+                    <div class="win-bar"><i></i><i></i><i></i><span>Taller · Órdenes de trabajo</span></div>
+                    <div class="kanban">
+                        <div class="col" style="--c:#9aa5c7">
+                            <h4>Recepción <em>2</em></h4>
+                            <div class="ot"><b>HJKL-23</b><span>Toyota Yaris</span><small>Ruido al frenar</small></div>
+                            <div class="ot"><b>PRTS-81</b><span>Chevrolet Sail</span><small>Mantención 60.000 km</small></div>
+                        </div>
+                        <div class="col" style="--c:#f5b84b">
+                            <h4>Diagnóstico <em>1</em></h4>
+                            <div class="ot"><b>GFDW-45</b><span>Nissan Navara</span><small>Presupuesto enviado</small></div>
+                        </div>
+                        <div class="col" style="--c:#22D3EE">
+                            <h4>Reparación <em>2</em></h4>
+                            <div class="ot"><b>KLBX-12</b><span>Kia Rio</span><small>Cambio de embrague</small></div>
+                            <div class="ot"><b>JJWT-77</b><span>Suzuki Swift</span><small>Pastillas y discos</small></div>
+                        </div>
+                        <div class="col" style="--c:#34d399">
+                            <h4>Listo <em>1</em></h4>
+                            <div class="ot"><b>CXRP-30</b><span>Hyundai Accent</span><small>Por entregar</small></div>
+                        </div>
+                    </div>
+                    <div class="wa-aviso"><svg class="i"><use href="#i-chat"/></svg> Aviso enviado: «Su vehículo CXRP-30 está listo para retiro»</div>
+                </div>
+            </div>
+        </article>
+
+        <article class="prod" id="prod-simplestock">
+            <div class="prod-text">
+                <p class="prod-tag"><svg class="i"><use href="#i-scan"/></svg> SimpleStock</p>
+                <p class="problema">¿Tomar inventario es un problema? ¿Anotas códigos y cantidades en planillas para después digitarlos en tu sistema?</p>
+                <h3>Tu celular Android convertido en capturador de inventario</h3>
+                <ul class="puntos">
+                    <li>Usa tu propio celular, sin comprar equipos</li>
+                    <li>Cuenta en bodega o en sala, sin planillas ni doble digitación</li>
+                    <li>Exporta en CSV u otro formato para cargarlo en tu sistema</li>
+                </ul>
+                <a href="mailto:alek886.inf@gmail.com" class="more" data-msg="Hola, vi su página y me interesa SimpleStock.">Quiero SimpleStock <svg class="i"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="prod-visual" aria-hidden="true">
+                <div class="phone">
+                    <div class="phone-screen">
+                        <div class="ss-head"><strong>SimpleStock</strong><small>Bodega · Conteo #12</small></div>
+                        <div class="ss-scan"><div class="barcode"></div><span class="laser"></span></div>
+                        <ul class="ss-list">
+                            <li><span>Arroz grado 1, 1 kg<small>7801234567890</small></span><b>24</b></li>
+                            <li><span>Fideos spaghetti 400 g<small>7802345678901</small></span><b>36</b></li>
+                            <li><span>Aceite maravilla 1 L<small>7803456789012</small></span><b>12</b></li>
+                        </ul>
+                        <div class="ss-export">Exportar CSV</div>
+                    </div>
+                </div>
+            </div>
+        </article>
     </div>
 </section>
 
-<section id="sobre-mi" class="sec">
+<section id="proceso" class="sec">
+    <div class="wrap">
+        <header class="sec-head">
+            <p class="eyebrow">Cómo trabajamos</p>
+            <h2>De la conversación al sistema funcionando</h2>
+        </header>
+        <ol class="steps">
+            <li>
+                <span class="ico"><svg class="i"><use href="#i-chat"/></svg></span>
+                <h3>Conversamos</h3>
+                <p>Nos cuentas cómo funciona tu negocio, en persona o a distancia.</p>
+            </li>
+            <li>
+                <span class="ico"><svg class="i"><use href="#i-file"/></svg></span>
+                <h3>Te enviamos una propuesta</h3>
+                <p>Qué incluye, plazos y costo. Sin compromiso.</p>
+            </li>
+            <li>
+                <span class="ico"><svg class="i"><use href="#i-monitor"/></svg></span>
+                <h3>Lo dejamos funcionando</h3>
+                <p>Instalamos el sistema en tu computador, tablet o celular, en la nube o local.</p>
+            </li>
+            <li>
+                <span class="ico"><svg class="i"><use href="#i-headset"/></svg></span>
+                <h3>Te acompañamos</h3>
+                <p>Soporte presencial en la zona y remoto a todo Chile.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- Testimonios: agregar aquí una sección cuando haya comentarios reales de clientes. -->
+
+<section id="preguntas" class="sec alt">
+    <div class="wrap faq-in">
+        <header class="sec-head">
+            <p class="eyebrow">Preguntas frecuentes</p>
+            <h2>Lo que nos suelen preguntar</h2>
+        </header>
+        <div class="faq">
+            <details>
+                <summary>¿Funciona si se corta internet?<svg class="i"><use href="#i-chevron"/></svg></summary>
+                <p>Sí. El punto de venta puede seguir vendiendo sin conexión, para que tu caja no se detenga.</p>
+            </details>
+            <details>
+                <summary>¿Tengo que cambiar cómo emito mis boletas?<svg class="i"><use href="#i-chevron"/></svg></summary>
+                <p>No. Puedes seguir usando E-Boleta o tu POS móvil de pago, y nosotros manejamos tu stock y tus ventas. Si más adelante quieres, integramos la boleta o la factura electrónica directo en tu sistema.</p>
+            </details>
+            <details>
+                <summary>¿En qué equipos funciona?<svg class="i"><use href="#i-chevron"/></svg></summary>
+                <p>En computador, tablet y celular. Puede quedar en la nube o instalado localmente en tu negocio.</p>
+            </details>
+            <details>
+                <summary>¿Atienden fuera de Loncoche?<svg class="i"><use href="#i-chevron"/></svg></summary>
+                <p>Atendemos presencialmente en Loncoche, Lanco, Villarrica, Pucón y Temuco, y damos soporte remoto a todo Chile.</p>
+            </details>
+            <details>
+                <summary>¿Cuánto cuesta?<svg class="i"><use href="#i-chevron"/></svg></summary>
+                <p>Depende de lo que necesites. Cuéntanos de tu negocio y te enviamos una propuesta sin compromiso.</p>
+            </details>
+            <details>
+                <summary>¿Y si lo que necesito no está aquí?<svg class="i"><use href="#i-chevron"/></svg></summary>
+                <p>Coméntanos tu idea y te asesoramos: lo desarrollamos nosotros o te conseguimos al especialista indicado.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<section id="nosotros" class="sec">
     <div class="wrap about">
         <div>
-            <h2>Sobre SoluTI</h2>
-            <p class="lead">SoluTI nace en Loncoche con una idea simple: que las pymes del sur de Chile tengan la misma tecnología que las grandes empresas. Desarrollamos sistemas de punto de venta, control de stock, boleta electrónica integrada con el SII y aplicaciones de gestión que funcionan en computador, tablet y celular.</p>
+            <p class="eyebrow">Nosotros</p>
+            <h2>Tecnología de empresa grande para la pyme del sur</h2>
+            <p class="lead">SoluTI nace en Loncoche con una idea simple: que las pymes del sur de Chile tengan la misma tecnología que las grandes empresas. Desarrollamos sistemas de punto de venta, control de stock, boleta electrónica integrada con el SII y aplicaciones de gestión.</p>
             <div class="zona">
-                <p class="place">Loncoche <img src="assets/copihue.svg" alt="Copihue" class="copihue"> <span class="reg">Región de La Araucanía</span></p>
-                <p>Atención presencial en Loncoche, Lanco, Villarrica, Pucón y Temuco. Soporte remoto a todo Chile.</p>
+                <p class="place"><svg class="i"><use href="#i-pin"/></svg> Loncoche <img src="assets/copihue.svg" alt="" class="copihue"> <span class="reg">Región de La Araucanía</span></p>
+                <ul class="chips"><li>Loncoche</li><li>Lanco</li><li>Villarrica</li><li>Pucón</li><li>Temuco</li><li>Remoto a todo Chile</li></ul>
             </div>
         </div>
-        <div>
-            <h3>Tecnologías</h3>
-            <div class="tags big">
-                <span>PHP</span><span>MySQL</span><span>JavaScript</span><span>HTML / CSS</span><span>C# / .NET</span><span>APIs REST</span><span>PWA</span><span>Git</span>            </div>
+        <div class="marca-card">
+            <img src="assets/marca/soluti-logo-principal-para-fondo-oscuro.svg" alt="SoluTI · Soluciones Tecnológicas Integrales" class="marca-logo" width="290" height="70">
+            <p class="marca-titulo">Con qué trabajamos</p>
+            <ul class="chips tech"><li>PHP</li><li>MySQL</li><li>JavaScript</li><li>HTML / CSS</li><li>C# / .NET</li><li>APIs REST</li><li>PWA</li><li>Git</li></ul>
         </div>
     </div>
 </section>
 
-<section id="contacto" class="sec cta">
+<section id="contacto" class="sec">
     <div class="wrap">
-        <h2>¿Tienes un proyecto en mente?</h2>
-        <p class="sub">Cuéntanos qué necesitas y te respondemos con una propuesta sin compromiso.</p>
-        <div class="actions center">
-                        <a href="mailto:alek886.inf@gmail.com" class="btn ">✉️ alek886.inf@gmail.com</a>
-                                </div>
+        <div class="cta">
+            <h2>¿Tienes un proyecto en mente?</h2>
+            <p class="sub">Cuéntanos qué necesitas y te respondemos con una propuesta sin compromiso.</p>
+            <div class="actions center">
+                <a href="mailto:alek886.inf@gmail.com" class="btn btn-wa" data-msg="Hola, vi su página y quiero cotizar un proyecto." hidden>
+                    <svg class="i"><use href="#i-chat"/></svg> Escríbenos por WhatsApp
+                </a>
+                <a href="mailto:alek886.inf@gmail.com" class="btn btn-mail" data-mail="Hola, vi su página y quiero cotizar un proyecto.">
+                    <svg class="i"><use href="#i-mail"/></svg> alek886.inf@gmail.com
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
+</main>
+
 <footer class="foot">
-    <div class="wrap">
-        <img src="assets/marca/soluti-logo-principal-para-fondo-oscuro.svg" alt="SoluTI · Soluciones Tecnológicas Integrales" class="foot-logo" width="290" height="70">
-        <p class="place">Hecho con orgullo en Loncoche <img src="assets/copihue.svg" alt="Copihue" class="copihue"> <span class="reg">Región de La Araucanía</span>, Chile</p>
-        <p class="copy">© 2026 SoluTI. Todos los derechos reservados.</p>
+    <div class="wrap foot-in">
+        <div class="foot-marca">
+            <img src="assets/marca/soluti-logo-principal-para-fondo-oscuro.svg" alt="SoluTI · Soluciones Tecnológicas Integrales" class="foot-logo" width="290" height="70">
+            <p>Hecho con orgullo en Loncoche <img src="assets/copihue.svg" alt="" class="copihue"> Región de La Araucanía, Chile.</p>
+        </div>
+        <nav aria-label="Productos">
+            <h2>Productos</h2>
+            <a href="#prod-pos">MarketSTI POS</a>
+            <a href="#prod-taller">POS para taller</a>
+            <a href="#prod-simplestock">SimpleStock</a>
+        </nav>
+        <nav aria-label="Empresa">
+            <h2>SoluTI</h2>
+            <a href="#proceso">Cómo trabajamos</a>
+            <a href="#preguntas">Preguntas frecuentes</a>
+            <a href="#nosotros">Nosotros</a>
+        </nav>
+        <div>
+            <h2>Contacto</h2>
+            <a href="mailto:alek886.inf@gmail.com">alek886.inf@gmail.com</a>
+            <p>Loncoche, Lanco, Villarrica, Pucón y Temuco</p>
+        </div>
     </div>
+    <p class="wrap copy">© 2026 SoluTI. Todos los derechos reservados.</p>
 </footer>
 
+<a href="#contacto" class="wa-float" data-msg="Hola, vi su página y quiero cotizar un proyecto." aria-label="Escríbenos por WhatsApp" hidden>
+    <svg class="i"><use href="#i-chat"/></svg>
+</a>
 
 </body>
 </html>
